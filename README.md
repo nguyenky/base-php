@@ -24,16 +24,23 @@ Your task is to create a PHP application that is a feeds reader. The app can rea
 # Documention
 
 #### Setup env
+```
 cp lenguyenky/.env.example lenguyenky/.env
+```
+```
 cp docker/env.example docker/.env
+```
 
-
+```
 cd docker
+```
 
 #### Start docker
-docekr-compose up -d
-
+```
+docker-compose up -d
+```
 
 #### Exec to workspace
+```
 ./dk ga
-
+```
