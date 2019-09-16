@@ -23,6 +23,16 @@ Your task is to create a PHP application that is a feeds reader. The app can rea
 
 # Documention
 
+#### Setup local domain
+
+```
+sudo nano /etc/hosts/
+```
+
+add line
+
+127.0.0.1       lenguyenky.local
+
 #### Setup env
 ```
 cp lenguyenky/.env.example lenguyenky/.env
@@ -44,3 +54,25 @@ docker-compose up -d
 ```
 ./dk ga
 ```
+
+#### Setup laravel source
+
+```
+composer install
+```
+```
+php artisan key:generate
+```
+```
+php artisan migrate --seed
+```
+
+#### Link local
+
+http://lenguyenky.local/
+
+acccount default
+
+admin@gmail.com
+12345678
+
