@@ -19,3 +19,21 @@ Your task is to create a PHP application that is a feeds reader. The app can rea
 3. Use git flow to manage branches on your repository
 4. Open a pull request to `master` branch after done.
 5. The implementation should covered by Unit Test or Functional Test.
+
+
+# Documention
+
+#### Setup env
+cp lenguyenky/.env.example lenguyenky/.env
+cp docker/env.example docker/.env
+
+
+cd docker
+
+#### Start docker
+docekr-compose up -d
+
+
+#### Exec to workspace
+./dk ga
+
