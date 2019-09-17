@@ -10,6 +10,8 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "ky/core": "@dev",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0"
     },
@@ -58,5 +60,14 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "repositories": {
+        "core": {
+            "type": "path",
+            "url": "./packages/core",
+            "options": {
+                "symlink": true
+            }
+        }
     }
 }
