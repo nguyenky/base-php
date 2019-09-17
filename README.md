@@ -94,6 +94,9 @@ Name : <your_name>
 
 ###### Connection 
 Host name/address: postgres
+
 Port : 5432
+
 Maintenance database: postgres
+
 Username: none
