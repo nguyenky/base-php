@@ -29,12 +29,19 @@ class GrabFeedUrlsCommand extends Command
     protected $urls;
 
     /**
+     * @var GrabFeedUrlsService
+     */
+    protected $service;
+
+    /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(GrabFeedUrlsService $service)
     {
+        $this->service = $service;
+
         parent::__construct();
     }
 
@@ -47,7 +54,6 @@ class GrabFeedUrlsCommand extends Command
     {   
         $this->setLog();
 
-        $service = app(GrabFeedUrlsService::class);
         $urls = $this->getAllArguments();
 
         if (empty($urls)) {
@@ -62,7 +68,7 @@ class GrabFeedUrlsCommand extends Command
             }
 
             try{
-                $service->setData(['url' => $url])->handle();
+                $this->service->setData(['url' => $url])->handle();
 
                 $info = 'Grab ' . $url . ' successfully !!!';
                 \Log::info($info);
@@ -82,8 +88,8 @@ class GrabFeedUrlsCommand extends Command
      */
     private function getAllArguments()
     {
-        return isset($this->arguments()['urls'])
-            ? explode(',', $this->arguments()['urls'])
+        return $this->argument('urls')
+            ? explode(',', $this->argument('urls'))
             : [];
     }
 
