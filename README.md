@@ -25,8 +25,10 @@ Your task is to create a PHP application that is a feeds reader. The app can rea
 
 #### Setup local domain
 
+cd base-php
+
 ```
-sudo nano /etc/hosts/
+sudo nano /etc/hosts
 ```
 
 add line
@@ -38,7 +40,7 @@ add line
 cp lenguyenky/.env.example lenguyenky/.env
 ```
 ```
-cp docker/env.example docker/.env
+cp docker/.env.example docker/.env
 ```
 
 ```
@@ -76,3 +78,22 @@ acccount default
 admin@gmail.com
 12345678
 
+#### Link pgadmin
+
+http://localhost:5050
+
+account admin 
+
+pgadmin4@pgadmin.org
+admin
+
+##### Create new server postgres
+
+###### General
+Name : <your_name>
+
+###### Connection 
+Host name/address: postgres
+Port : 5432
+Maintenance database: postgres
+Username: none
