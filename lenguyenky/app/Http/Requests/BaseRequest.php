@@ -15,6 +15,12 @@ abstract class BaseRequest extends FormRequest
 
     const LIMIT_DEFAULT_MAX = 50;
 
+    const TITLE_MIN_LENGTH = 1;
+    const TITLE_MAX_LENGTH = 200;
+
+    const DESCRIPTION_MIN_LENGTH = 1;
+    const DESCRIPTION_MAX_LENGTH = 1000;
+
     public function rules()
     {
         return [];

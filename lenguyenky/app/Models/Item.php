@@ -15,4 +15,8 @@ class Item extends Model
         'comments',
         'pubDate'
     ];
+
+    protected $dates = [
+        'pubDate'
+    ];
 }

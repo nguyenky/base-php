@@ -15,6 +15,7 @@ class ItemResource extends JsonResource
     public function toArray($request)
     {
         return $this->resource->only([
+            'id',
             'channel_id',
             'title',
             'description',

@@ -11,6 +11,10 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
+Route::pattern('id', '[0-9]+');
+
 Route::group(['namespace' => 'Api'], function() {
-    Route::apiResource('items', 'ItemController')->only('index');
+    Route::apiResource('items', 'ItemController');
 });
