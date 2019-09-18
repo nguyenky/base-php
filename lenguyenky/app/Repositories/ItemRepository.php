@@ -16,4 +16,16 @@ class ItemRepository extends BaseRepository
     {
         return Item::class;
     }
+
+    /**
+     * Get allow relations
+     *
+     * @return array
+     */
+    public function getAllowRelations()
+    {
+        return [
+            'channel'
+        ];
+    }
 }

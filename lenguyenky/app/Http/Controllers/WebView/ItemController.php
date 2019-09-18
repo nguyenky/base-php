@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\WebView;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Item\StoreItemRequest;
 use App\Http\Requests\Item\DeleteItemRequest;
 use App\Http\Requests\Item\FindItemRequest;
 use App\Http\Requests\Item\ListItemRequest;
-use App\Http\Requests\Item\UpdateItemRequest;
-use App\Http\Resources\Item\ItemCollection;
-use App\Http\Resources\Item\ItemResource;
+use App\Services\Channel\ListChannelService;
 use App\Services\Item\CreateItemService;
 use App\Services\Item\DeleteItemService;
 use App\Services\Item\FindItemService;
@@ -43,61 +40,65 @@ class ItemController extends Controller
      */
     protected $deleteService;
 
+    /**
+     * @var ListChannelService
+     */
+    protected $listChannelService;
+
     public function __construct(
         ListItemsService $listService,
         FindItemService $findService,
         CreateItemService $createService,
         UpdateItemService $updateService,
-        DeleteItemService $deleteService
+        DeleteItemService $deleteService,
+        ListChannelService $listChannelService
     ) {
         $this->listService = $listService;
         $this->findService = $findService;
         $this->createService = $createService;
         $this->updateService = $updateService;
         $this->deleteService = $deleteService;
+        $this->listChannelService = $listChannelService;
     }
-
+    
     public function index(ListItemRequest $request)
     {
         $items = $this->listService
             ->setRequest($request)
+            ->setWith('channel')
             ->handle();
-        
-        return response()->success(new ItemCollection($items));
+
+        return view('item.index', [
+            'items' => $items
+        ]);
     }
 
-    public function show(FindItemRequest $request, int $id)
+    public function edit(FindItemRequest $request, int $id)
     {
         $item = $this->findService
             ->setRequest($request)
             ->setModel($id)
             ->handle();
         
-        return response()->success(new ItemResource($item));
     }
 
-    public function store(StoreItemRequest $request)
+    public function update()
     {
-        $item = $this->createService
-            ->setRequest($request)
-            ->handle();
 
-        return response()->created(new ItemResource($item));
     }
 
-    public function update(UpdateItemRequest $request, int $id)
+    public function create()
     {
-        $item = $this->findService
-            ->setRequest($request)
-            ->setModel($id)
-            ->handle();
-        
-        $item = $this->updateService
-            ->setRequest($request)
-            ->setModel($item)
-            ->handle();
+        $channels = $this->listChannelService->handle();
 
-        return response()->success(new ItemResource($item));
+        return view('item.create', [
+            'channels' => $channels
+        ]);
+    }
+
+    public function store()
+    {
+
     }
 
     public function destroy(DeleteItemRequest $request, int $id)
@@ -112,6 +113,19 @@ class ItemController extends Controller
             ->setModel($item)
             ->handle();
 
-        return response()->successWithoutData();
+        return redirect()->route('items.index');
+    }
+
+    public function show(FindItemRequest $request, int $id)
+    {
+        $item = $this->findService
+            ->setRequest($request)
+            ->setModel($id)
+            ->setWith('channel')
+            ->handle();
+        
+        return view('item.show', [
+            'item' => $item
+        ]);
     }
 }

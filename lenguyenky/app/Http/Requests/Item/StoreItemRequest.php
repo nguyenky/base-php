@@ -6,7 +6,7 @@ use App\Http\Requests\BaseRequest;
 use App\Models\Channel;
 use Illuminate\Validation\Rule;
 
-class CreateItemRequest extends BaseRequest
+class StoreItemRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.

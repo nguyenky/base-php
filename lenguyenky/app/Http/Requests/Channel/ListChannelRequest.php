@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Item;
+namespace App\Http\Requests\Channel;
 
 use App\Http\Requests\BaseRequest;
 
-class FindItemRequest extends BaseRequest
+class ListChannelRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,6 @@ class FindItemRequest extends BaseRequest
      */
     public function rules()
     {
-        return $this->commonListRules();
+        return [];
     }
 }

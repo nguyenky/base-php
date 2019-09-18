@@ -19,4 +19,9 @@ class Item extends Model
     protected $dates = [
         'pubDate'
     ];
+
+    public function channel()
+    {
+        return $this->belongsTo(\App\Models\Channel::class);
+    }
 }
