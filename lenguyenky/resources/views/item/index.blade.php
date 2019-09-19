@@ -16,13 +16,13 @@
                         <div class="col-md-6 float-right">
                             <div class="form-group">
                                 <label for="email">Per page</label>
-                                <input type="number" value="{{ request()->input('per_page')}}" name="per_page" class="form-control">
+                                <input type="number" value="{{ request()->input('per_page') ?? 50}}" name="per_page" class="form-control">
                                 @if ($errors->has('per_page'))
                                     <label class="text-danger">{{$errors->first('per_page')}}</label>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="email">Select channel to filter</label>
+                                <label for="email">Select channel to filter !</label>
                                 <select class="form-control" name="channel_id">
                                     <option value="" disabled selected>Select Channel</option>
                                     @foreach($channels as $channel)
@@ -39,6 +39,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
+                            <label for="email">Enter category !</label>
                                 <input type="text" value="{{ request()->input('category')}}" name="category" class="form-control">
                                 @if ($errors->has('category'))
                                     <label class="text-danger">{{$errors->first('category')}}</label>
@@ -89,6 +90,11 @@
                     <div class="float-right">
                         {{$items->appends(request()->input())->links()}}
                     </div>
+                    @if($items->isEmpty())
+                        <div class="text-center">
+                            <p>Data not found !!!</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

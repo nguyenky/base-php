@@ -16,7 +16,7 @@
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label for="email">Title</label>
-                        <input type="text" value="{{ old('title') ? old('title') : $item->title}}" name="title" class="form-control">
+                        <input type="text" value="{{ old('title') ?? $item->title}}" name="title" class="form-control">
                         @if ($errors->has('title'))
                             <label class="text-danger">{{$errors->first('title')}}</label>
                         @endif
@@ -27,7 +27,7 @@
                             <option value="" disabled selected>Select Channel</option>
                             @foreach($channels as $channel)
                                 {{
-                                    $value = old('channel_id') ? old('channel_id') : $item->channel_id
+                                    $value = old('channel_id') ?? $item->channel_id
                                 }}
 
                                 @if ($value == $channel->id)
@@ -44,14 +44,14 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Link</label>
-                        <input type="text" value="{{ old('link') ? old('link') : $item->link}}" name="link" class="form-control" id="email">
+                        <input type="text" value="{{ old('link') ?? $item->link}}" name="link" class="form-control" id="email">
                         @if ($errors->has('link'))
                             <label class="text-danger">{{$errors->first('link')}}</label>
                         @endif
                     </div>
                     <div class="form-group">
                         <label for="email">Category</label>
-                        <input type="text" value="{{ old('category') ? old('category') : $item->category}}" name="category" class="form-control" id="email">
+                        <input type="text" value="{{ old('category') ?? $item->category}}" name="category" class="form-control" id="email">
                         @if ($errors->has('category'))
                             <label class="text-danger">{{$errors->first('category')}}</label>
                         @endif

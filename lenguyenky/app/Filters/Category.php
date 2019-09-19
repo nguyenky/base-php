@@ -15,6 +15,6 @@ class Category extends BaseFilter
      */
     public static function apply($model, $input)
     {
-        return $model->whereCategory($input);
+        return $model->where('category', 'ILIKE', '%'. self::escapeString($input) . '%');
     }
 }
