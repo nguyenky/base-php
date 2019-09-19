@@ -6,14 +6,14 @@ use Illuminate\Foundation\Http\FormRequest;
 
 abstract class BaseRequest extends FormRequest
 {
-    const INT_32_MIN = 0;
+    const INT_32_MIN = 1;
     const INT_32_MAX = 2147483648;
 
     const ORDER_DEFAULT_LENGTH = 100;
 
     const WITH_DEFAULT_LENGTH = 100;
 
-    const LIMIT_DEFAULT_MAX = 50;
+    const LIMIT_DEFAULT_MAX = 100;
 
     const TITLE_MIN_LENGTH = 1;
     const TITLE_MAX_LENGTH = 200;

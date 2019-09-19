@@ -14,30 +14,37 @@
                 <div class="card-header">
                     <form role="form" method="GET" action="{{route('items.index')}}">
                         <div class="col-md-6 float-right">
-                        <div class="form-group">
-                            <label for="email">Select channel to filter</label>
-                            <select class="form-control" name="channel_id">
-                                <option value="" disabled selected>Select Channel</option>
-                                @foreach($channels as $channel)
-                                    @if (request()->input('channel_id') == $channel->id)
-                                        <option value="{{$channel->id}}" selected>{{$channel->title}}</option>
-                                    @else
-                                        <option value="{{$channel->id}}">{{$channel->title}}</option>
-                                    @endif
-                                    
-                                @endforeach
-                            </select>
-                            @if ($errors->has('channel_id'))
-                                <label class="text-danger">{{$errors->first('channel_id')}}</label>
-                            @endif
-                        </div>
+                            <div class="form-group">
+                                <label for="email">Per page</label>
+                                <input type="number" value="{{ request()->input('per_page')}}" name="per_page" class="form-control">
+                                @if ($errors->has('per_page'))
+                                    <label class="text-danger">{{$errors->first('per_page')}}</label>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Select channel to filter</label>
+                                <select class="form-control" name="channel_id">
+                                    <option value="" disabled selected>Select Channel</option>
+                                    @foreach($channels as $channel)
+                                        @if (request()->input('channel_id') == $channel->id)
+                                            <option value="{{$channel->id}}" selected>{{$channel->title}}</option>
+                                        @else
+                                            <option value="{{$channel->id}}">{{$channel->title}}</option>
+                                        @endif
+                                        
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('channel_id'))
+                                    <label class="text-danger">{{$errors->first('channel_id')}}</label>
+                                @endif
+                            </div>
                             <div class="form-group">
                                 <input type="text" value="{{ request()->input('category')}}" name="category" class="form-control">
                                 @if ($errors->has('category'))
                                     <label class="text-danger">{{$errors->first('category')}}</label>
                                 @endif
                             </div>
-                            <button type="submit" class="btn btn-default float-right">SEARCH</button>
+                            <button type="submit" class="btn btn-default float-right">Go !!</button>
                         </div>
                     </form>
                 </div>
