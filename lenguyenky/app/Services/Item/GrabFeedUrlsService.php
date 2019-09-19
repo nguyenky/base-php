@@ -54,7 +54,9 @@ class GrabFeedUrlsService extends BaseService
             $this->imageRepository->create($this->transformImage((array) $result->channel, $channel->id));
 
             // Insert bulk items
-            return $this->itemRepository->insert($this->transformItems((array) $result->channel, $channel->id));
+            $this->itemRepository->insert($this->transformItems((array) $result->channel, $channel->id));
+            
+            return $channel;
         });
     }
 

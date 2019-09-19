@@ -22,6 +22,6 @@ class DeleteItemService extends BaseService
      */
     public function handle()
     {
-        $this->model->delete();
+        return $this->model->delete();
     }
 }
