@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Channel;
+namespace Tests\Unit\Serives\Channel;
 
 use App\Models\Channel;
 use App\Services\Channel\ListChannelService;

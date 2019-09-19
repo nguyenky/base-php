@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Feature\Item;
+namespace Tests\Unit\Services\Item;
 
 use App\Models\Item;
 use App\Services\Item\ListItemsService;
 use Tests\TestCase;
 
-class ListItemTest extends TestCase
+class ListItemSeriveTest extends TestCase
 {
     /**
      * @var \App\Services\Channel\ListItemsService

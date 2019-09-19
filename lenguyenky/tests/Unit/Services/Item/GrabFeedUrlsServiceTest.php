@@ -13,18 +13,14 @@ class GrabFeedUrlsServiceTest extends TestCase
      */
     protected $service;
 
+    /**
+     * @var string
+     */
     protected $url = 'https://www.feedforall.com/sample.xml';
 
     public function boot()
     {
         $this->service = $this->app->make(GrabFeedUrlsService::class);
-    }
-
-    public function testGrab()
-    {
-        $result = $this->service->setData(['url' => $this->url])->grab();
-        
-        $this->assertNotEmpty((array) $result->channel);
     }
 
     public function testHandle()

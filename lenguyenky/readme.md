@@ -12,3 +12,8 @@ php artisan feed:urls https://www.feedforall.com/sample.xml,https://www.feedfora
 ##### I want to see the list of items which were grabbed by running the command line above, via web-based
 
 http://lenguyenky.local/items
+
+##### Run testing 
+```
+composer test
+```
