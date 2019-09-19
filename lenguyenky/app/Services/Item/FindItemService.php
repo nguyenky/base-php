@@ -34,7 +34,10 @@ class FindItemService extends BaseService
     {
         $this->prepareWithData();
 
-        $this->repository->pushCriteria(new WithRelationsCriteria($this->data->get('with'), $this->repository->getAllowRelations()));
+        $this->repository->pushCriteria(new WithRelationsCriteria(
+            $this->data->get('with'),
+            $this->repository->getAllowRelations()
+        ));
 
         return $this->repository->find($this->model);
     }

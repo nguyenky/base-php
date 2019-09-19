@@ -29,5 +29,4 @@ class GrabFeedUrlsServiceTest extends TestCase
         
         $this->assertInstanceOf(Channel::class, $result);
     }
-
 }

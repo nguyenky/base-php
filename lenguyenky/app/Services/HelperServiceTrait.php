@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-trait HelperServiceTrait 
+trait HelperServiceTrait
 {
     public function setWith(string $with)
     {
