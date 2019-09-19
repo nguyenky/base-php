@@ -75,7 +75,7 @@ http://lenguyenky.local/
 
 acccount default
 
-admin@gmail.com
+admin@gmail.com /
 12345678
 
 #### Link pgadmin
@@ -84,7 +84,7 @@ http://localhost:5050
 
 account admin 
 
-pgadmin4@pgadmin.org
+pgadmin4@pgadmin.org / 
 admin
 
 ##### Create new server postgres
