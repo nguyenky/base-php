@@ -65,9 +65,6 @@
                             <label class="text-danger">{{$errors->first('description')}}</label>
                         @endif
                     </div>
-                    <!-- <div class="checkbox">
-                        <label><input type="checkbox"> Remember me</label>
-                    </div> -->
                     <button type="submit" class="btn btn-default">Create Item</button>
                     </form>
                 </div>
