@@ -25,11 +25,11 @@ class ListItemRequest extends BaseRequest
     {
         return array_merge($this->commonListRules(), [
             'category' => [
-                'sometimes',
+                'nullable',
                 'string'
             ],
             'channel_id' => [
-                'sometimes',
+                'nullable',
                 'integer'
             ]
         ]);

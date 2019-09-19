@@ -83,18 +83,18 @@ class GrabFeedUrlsService extends BaseService
     private function transformChannel(array $result)
     {
         return [
-            'title' => $result['title'],
-            'description' => $result['description'],
-            'link' => $result['link'],
-            'category' => $result['category'],
-            'copyright' => $result['copyright'],
-            'docs' => $result['docs'],
-            'language' => $result['language'],
-            'lastBuildDate' => $result['lastBuildDate'],
-            'managingEditor' => $result['managingEditor'],
-            'pubDate' => $result['pubDate'],
-            'webMaster' => $result['webMaster'],
-            'generator' => $result['generator']
+            'title' => $result['title'] ?? null,
+            'description' => $result['description'] ?? null,
+            'link' => $result['link'] ?? null,
+            'category' => $result['category'] ?? null,
+            'copyright' => $result['copyright'] ?? null,
+            'docs' => $result['docs'] ?? null,
+            'language' => $result['language'] ?? null,
+            'lastBuildDate' => $result['lastBuildDate'] ?? null,
+            'managingEditor' => $result['managingEditor'] ?? null,
+            'pubDate' => $result['pubDate'] ?? null,
+            'webMaster' => $result['webMaster'] ?? null,
+            'generator' => $result['generator'] ?? null
         ];
     }
 
@@ -131,12 +131,12 @@ class GrabFeedUrlsService extends BaseService
             $item = (array) $value;
             $items[] = [
                 'channel_id' => $channelId,
-                'title' => $item['title'],
-                'description' => $item['description'],
-                'link' => $item['link'],
-                'category' => $item['category'],
-                'comments' => $item['comments'],
-                'pubDate' => $item['pubDate'],
+                'title' => $item['title'] ?? null,
+                'description' => $item['description'] ?? null,
+                'link' => $item['link'] ?? null,
+                'category' => $item['category'] ?? null,
+                'comments' => $item['comments'] ?? null,
+                'pubDate' => $item['pubDate'] ?? null,
                 'created_at' => $now,
                 'updated_at' => $now,
             ];
