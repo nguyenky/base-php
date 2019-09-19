@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Item;
+namespace App\Services;
 
-trait HelperTrait 
+trait HelperServiceTrait 
 {
     public function setWith(string $with)
     {
@@ -20,5 +20,17 @@ trait HelperTrait
         }
 
         $this->data->put('with', $this->with);
+    }
+
+    public function perepareData()
+    {
+        $this->preparePubDate();
+    }
+
+    public function preparePubDate()
+    {
+        if (!$this->data->has('pubDate')) {
+            $this->data->put('pubDate', now());
+        }
     }
 }

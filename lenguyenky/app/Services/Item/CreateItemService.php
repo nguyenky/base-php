@@ -3,10 +3,15 @@
 namespace App\Services\Item;
 
 use App\Repositories\ItemRepository;
+use App\Services\HelperServiceTrait;
 use Ky\Core\Services\BaseService;
 
 class CreateItemService extends BaseService
 {
+    use HelperServiceTrait;
+
+    protected $collectsData = true;
+
     /**
      * @var ItemRepository
      */
@@ -22,6 +27,8 @@ class CreateItemService extends BaseService
      */
     public function handle()
     {
-        return $this->repository->create($this->data);
+        $this->perepareData();
+
+        return $this->repository->create($this->data->toArray());
     }
 }

@@ -3,13 +3,13 @@
 namespace App\Services\Item;
 
 use App\Repositories\ItemRepository;
+use App\Services\HelperServiceTrait;
 use Ky\Core\Criteria\WithRelationsCriteria;
 use Ky\Core\Services\BaseService;
-use App\Services\Item\HelperTrait;
 
 class FindItemService extends BaseService
 {
-    use HelperTrait;
+    use HelperServiceTrait;
 
     protected $collectsData = true;
     /**

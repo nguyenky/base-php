@@ -28,4 +28,11 @@ class ItemRepository extends BaseRepository
             'channel'
         ];
     }
+
+    public function getOrderableFields()
+    {
+        return [
+            'updated_at'
+        ];
+    }
 }

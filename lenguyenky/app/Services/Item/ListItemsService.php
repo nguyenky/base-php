@@ -3,14 +3,15 @@
 namespace App\Services\Item;
 
 use App\Repositories\ItemRepository;
+use App\Services\HelperServiceTrait;
 use Ky\Core\Criteria\FilterCriteria;
+use Ky\Core\Criteria\OrderCriteria;
 use Ky\Core\Criteria\WithRelationsCriteria;
 use Ky\Core\Services\BaseService;
-use App\Services\Item\HelperTrait;
 
 class ListItemsService extends BaseService
 {   
-    use HelperTrait;
+    use HelperServiceTrait;
 
     protected $collectsData = true;
 
@@ -38,6 +39,7 @@ class ListItemsService extends BaseService
         
         $this->repository->pushCriteria(new FilterCriteria($this->data->toArray(), $this->getAllowFilters()));
         $this->repository->pushCriteria(new WithRelationsCriteria($this->data->get('with'), $this->repository->getAllowRelations()));
+        $this->repository->pushCriteria(new OrderCriteria($this->data->get('order')));
 
         return $this->repository->paginate($this->getPerPage());
     }

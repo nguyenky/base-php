@@ -27,8 +27,6 @@ Route::group(['middleware' => 'auth', 'namespace' => 'WebView'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
 
     # Items
-    Route::resource('items', 'ItemController')->except('destroy');
-    Route::get('item-destroy/{id}', 'ItemController@destroy')->name('items.destroy');
-    
+    Route::resource('items', 'ItemController');    
 });
 

@@ -55,10 +55,6 @@ class UpdateItemRequest extends BaseRequest
                 'min:'. self::TITLE_MIN_LENGTH,
                 'max:'. self::TITLE_MAX_LENGTH,
             ],
-            'pubDate' => [
-                'required',
-                'date',
-            ],
             'channel_id' => [
                 'required',
                 'integer',

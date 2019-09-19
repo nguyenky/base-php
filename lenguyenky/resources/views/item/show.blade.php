@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <a href="">Channels</a>
                         <a href="/items">Items</a>
                     </div>
                 </div>

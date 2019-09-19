@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Item\DeleteItemRequest;
 use App\Http\Requests\Item\FindItemRequest;
 use App\Http\Requests\Item\ListItemRequest;
+use App\Http\Requests\Item\StoreItemRequest;
+use App\Http\Requests\Item\UpdateItemRequest;
 use App\Services\Channel\ListChannelService;
 use App\Services\Item\CreateItemService;
 use App\Services\Item\DeleteItemService;
@@ -68,8 +70,11 @@ class ItemController extends Controller
             ->setWith('channel')
             ->handle();
 
+        $channels = $this->listChannelService->handle();
+        
         return view('item.index', [
-            'items' => $items
+            'items' => $items,
+            'channels' => $channels
         ]);
     }
 
@@ -79,12 +84,28 @@ class ItemController extends Controller
             ->setRequest($request)
             ->setModel($id)
             ->handle();
+
+        $channels = $this->listChannelService->handle();
         
+        return view('item.edit', [
+            'channels' => $channels,
+            'item' => $item
+        ]);
     }
 
-    public function update()
+    public function update(UpdateItemRequest $request, int $id)
     {
-
+        $item = $this->findService
+            ->setRequest($request)
+            ->setModel($id)
+            ->handle();
+        
+        $item = $this->updateService
+            ->setRequest($request)
+            ->setModel($item)
+            ->handle();
+        
+        return redirect()->route('items.index');
     }
 
     public function create()
@@ -96,9 +117,13 @@ class ItemController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(StoreItemRequest $request)
     {
+        $this->createService
+            ->setRequest($request)
+            ->handle();
 
+        return redirect()->route('items.index');
     }
 
     public function destroy(DeleteItemRequest $request, int $id)
