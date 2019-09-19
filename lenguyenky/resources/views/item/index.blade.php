@@ -45,6 +45,7 @@
                                     <label class="text-danger">{{$errors->first('category')}}</label>
                                 @endif
                             </div>
+                            <a href="/items"><button type="button" class="btn btn-default">Reset</button></a>
                             <button type="submit" class="btn btn-default float-right">Go !!</button>
                         </div>
                     </form>
@@ -55,13 +56,13 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col" style="width:1%">ID</th>
-                                <th scope="col" style="width:10%">Channel</th>
+                                <th scope="col" style="width:5%">ID</th>
+                                <th scope="col" style="width:25%">Channel</th>
                                 <th scope="col" style="width:10%">Title</th>
                                 <th scope="col" style="width:10%">Link</th>
-                                <th scope="col" style="width:10%">Category</th>
-                                <th scope="col" style="width:20%">PubDate</th>
-                                <th scope="col" style="width:20%">Action</th>
+                                <th scope="col" style="width:20%">Category</th>
+                                <th scope="col" style="width:10%">PubDate</th>
+                                <th scope="col" style="width:20%" class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
