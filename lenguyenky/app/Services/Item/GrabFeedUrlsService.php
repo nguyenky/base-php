@@ -92,7 +92,7 @@ class GrabFeedUrlsService extends BaseService
             'language' => $result['language'] ?? null,
             'lastBuildDate' => $result['lastBuildDate'] ?? null,
             'managingEditor' => $result['managingEditor'] ?? null,
-            'pubDate' => $result['pubDate'] ?? null,
+            'pub_date' => $result['pubDate'] ?? null,
             'webMaster' => $result['webMaster'] ?? null,
             'generator' => $result['generator'] ?? null
         ];
@@ -136,7 +136,7 @@ class GrabFeedUrlsService extends BaseService
                 'link' => $item['link'] ?? null,
                 'category' => $item['category'] ?? null,
                 'comments' => $item['comments'] ?? null,
-                'pubDate' => $item['pubDate'] ?? null,
+                'pub_date' => $item['pubDate'] ?? null,
                 'created_at' => $now,
                 'updated_at' => $now,
             ];

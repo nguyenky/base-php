@@ -24,7 +24,7 @@ class CreateChannelsTable extends Migration
             $table->string('language')->nullable();
             $table->datetime('lastBuildDate')->nullable();
             $table->string('managingEditor')->nullable();
-            $table->datetime('pubDate')->nullable();
+            $table->datetime('pub_date')->nullable();
             $table->string('webMaster')->nullable();
             $table->string('generator')->nullable();
             $table->timestamps();

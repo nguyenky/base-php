@@ -17,7 +17,7 @@
                         <a href="{{$item->link}}">{{$item->link}}</a>
                         <p><strong>Category</strong>: {{$item->category}}</p>
                         <p><strong>Comment</strong>: {{$item->comments}}</p>
-                        <p><strong>Pub Date</strong>: {{$item->pubDate}}</p>
+                        <p><strong>Pub Date</strong>: {{$item->pub_date}}</p>
                         <p><strong>Description</strong>: {!! $item->description !!}</p>
                     </div>
                 </div>

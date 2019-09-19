@@ -18,7 +18,7 @@ class Channel extends Model
         'language',
         'lastBuildDate',
         'managingEditor',
-        'pubDate',
+        'pub_date',
         'webMaster',
         'generator'
     ];

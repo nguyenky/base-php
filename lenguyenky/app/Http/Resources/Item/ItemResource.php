@@ -22,7 +22,7 @@ class ItemResource extends JsonResource
             'link',
             'category',
             'comments',
-            'pubDate'
+            'pub_date'
         ]);
     }
 }

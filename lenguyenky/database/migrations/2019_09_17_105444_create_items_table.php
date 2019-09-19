@@ -21,7 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('link')->nullable();
             $table->string('category')->nullable();
             $table->string('comments')->nullable();
-            $table->datetime('pubDate')->nullable();
+            $table->datetime('pub_date')->nullable();
             $table->timestamps();
 
             $table->foreign('channel_id', 'items_fk_channel_id_1')

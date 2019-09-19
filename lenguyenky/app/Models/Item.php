@@ -13,11 +13,11 @@ class Item extends Model
         'link',
         'category',
         'comments',
-        'pubDate'
+        'pub_date'
     ];
 
     protected $dates = [
-        'pubDate'
+        'pub_date'
     ];
 
     public function channel()

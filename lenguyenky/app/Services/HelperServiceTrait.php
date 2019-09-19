@@ -29,8 +29,8 @@ trait HelperServiceTrait
 
     public function preparePubDate()
     {
-        if (!$this->data->has('pubDate')) {
-            $this->data->put('pubDate', now());
+        if (!$this->data->has('pub_date')) {
+            $this->data->put('pub_date', now());
         }
     }
 }

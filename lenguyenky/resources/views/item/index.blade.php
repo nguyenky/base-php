@@ -64,7 +64,7 @@
                                 <td>{{$item->title}}</td>
                                 <td><a href="{{$item->link}}">{{$item->link}}</a></td>
                                 <td>{{$item->category}}</td>
-                                <td>{{$item->pubDate}}</td>
+                                <td>{{$item->pub_date}}</td>
                                 <td class="text-center">
                                     <a href="{{route('items.show', ['id' => $item->id])}}"><i class="fa fa-info-circle fa-2x"></i></a><br /> 
                                     <a href="{{route('items.edit', ['id' => $item->id])}}"><i class="fa fa-pencil fa-2x"></i></a><br />
