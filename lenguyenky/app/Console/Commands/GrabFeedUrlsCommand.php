@@ -51,7 +51,7 @@ class GrabFeedUrlsCommand extends Command
      * @return mixed
      */
     public function handle()
-    {   
+    {
         $this->setLog();
 
         $urls = $this->getAllArguments();
@@ -61,19 +61,19 @@ class GrabFeedUrlsCommand extends Command
             return;
         }
 
-        foreach($urls as $url) {
+        foreach ($urls as $url) {
             if (! $this->ensureHttp($url)) {
                 $this->comment($url . ' is not a https !!');
                 continue;
             }
 
-            try{
+            try {
                 $this->service->setData(['url' => $url])->handle();
 
                 $info = 'Grab ' . $url . ' successfully !!!';
                 \Log::info($info);
                 $this->info($info);
-            } catch(\Exception $e) {
+            } catch (\Exception $e) {
                 $this->error('Grab ' . $url . ' failed !!!');
             }
         }
@@ -95,7 +95,7 @@ class GrabFeedUrlsCommand extends Command
 
     /**
      * Check the url ensure the https
-     * 
+     *
      * @param string $url
      *
      * @return bool
@@ -113,6 +113,6 @@ class GrabFeedUrlsCommand extends Command
     {
         if (!is_null($this->option('log'))) {
             config(['logging.channels.custom.path' => storage_path('logs/' . $this->option('log') . '.log')]);
-        }        
+        }
     }
 }

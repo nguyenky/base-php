@@ -46,7 +46,7 @@ class GrabFeedUrlsService extends BaseService
     {
         $result = $this->grab();
 
-        return DB::transaction(function() use ($result) {
+        return DB::transaction(function () use ($result) {
             // Insert chancel
             $channel = $this->channelRepository->create($this->transformChannel((array) $result->channel));
 
@@ -129,7 +129,7 @@ class GrabFeedUrlsService extends BaseService
         $items = [];
         $now = now();
 
-        foreach($result['item'] as $value) {
+        foreach ($result['item'] as $value) {
             $item = (array) $value;
             $items[] = [
                 'channel_id' => $channelId,

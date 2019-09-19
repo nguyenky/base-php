@@ -77,8 +77,13 @@ class OrderCriteria implements CriteriaInterface
                         $relatedAlias = Str::snake(class_basename($relation->getRelated()));
 
                         return $query->select($relatedAlias . '.' . $found[2])
-                            ->fromRaw($relation->getModel()->getTable() . ' as ' . $relatedAlias)
-                            ->whereColumn($relatedAlias . '.' . $relation->getOwnerKeyName(), $relation->getQualifiedForeignKeyName());
+                            ->fromRaw(
+                                $relation->getModel()->getTable() . ' as ' . $relatedAlias
+                            )
+                            ->whereColumn(
+                                $relatedAlias . '.' . $relation->getOwnerKeyName(),
+                                $relation->getQualifiedForeignKeyName()
+                            );
                     }, $field);
             }
 

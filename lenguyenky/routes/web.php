@@ -22,11 +22,10 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
     # Home
     Route::get('/home', 'HomeController@index')->name('home');
 
     # Items
-    Route::resource('items', 'ItemController');    
+    Route::resource('items', 'ItemController');
 });
-

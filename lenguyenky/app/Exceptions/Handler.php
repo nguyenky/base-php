@@ -121,8 +121,8 @@ class Handler extends ExceptionHandler
             ], $statusCode);
         };
 
-        return $e instanceof ValidationException 
-            ? $this->convertValidationExceptionToResponse($e, $request) 
+        return $e instanceof ValidationException
+            ? $this->convertValidationExceptionToResponse($e, $request)
             : response($message, 400);
     }
 }

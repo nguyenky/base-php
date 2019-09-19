@@ -10,7 +10,7 @@ use Ky\Core\Criteria\WithRelationsCriteria;
 use Ky\Core\Services\BaseService;
 
 class ListItemsService extends BaseService
-{   
+{
     use HelperServiceTrait;
 
     protected $collectsData = true;
@@ -38,7 +38,10 @@ class ListItemsService extends BaseService
         $this->prepareWithData();
         
         $this->repository->pushCriteria(new FilterCriteria($this->data->toArray(), $this->getAllowFilters()));
-        $this->repository->pushCriteria(new WithRelationsCriteria($this->data->get('with'), $this->repository->getAllowRelations()));
+        $this->repository->pushCriteria(new WithRelationsCriteria(
+            $this->data->get('with'),
+            $this->repository->getAllowRelations()
+        ));
         $this->repository->pushCriteria(new OrderCriteria($this->data->get('order')));
 
         return $this->repository->paginate($this->getPerPage());

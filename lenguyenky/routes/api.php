@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::pattern('id', '[0-9]+');
 
-Route::group(['namespace' => 'Auth'], function() {
+Route::group(['namespace' => 'Auth'], function () {
     Route::post('login', 'LoginController@login')->name('login');
 });
 
-Route::group(['middleware' => 'jwt.auth'], function() {
+Route::group(['middleware' => 'jwt.auth'], function () {
     Route::apiResource('items', 'ItemController');
 });
