@@ -54,7 +54,9 @@ class GrabFeedUrlsService extends BaseService
             $this->imageRepository->create($this->transformImage((array) $result->channel, $channel->id));
 
             // Insert bulk items
-            return $this->itemRepository->insert($this->transformItems((array) $result->channel, $channel->id));
+            $this->itemRepository->insert($this->transformItems((array) $result->channel, $channel->id));
+            
+            return $channel;
         });
     }
 
@@ -64,7 +66,7 @@ class GrabFeedUrlsService extends BaseService
      *
      * @return SimpleXMLElement
      */
-    private function grab()
+    public function grab()
     {
         $this->client = new Client();
         $response = $this->client->get($this->data->get('url'));
@@ -80,7 +82,7 @@ class GrabFeedUrlsService extends BaseService
      *
      * @return array
      */
-    private function transformChannel(array $result)
+    public function transformChannel(array $result)
     {
         return [
             'title' => $result['title'] ?? null,
@@ -106,7 +108,7 @@ class GrabFeedUrlsService extends BaseService
      *
      * @return array
      */
-    private function transformImage(array $result, int $channelId)
+    public function transformImage(array $result, int $channelId)
     {
         $image = (array) $result['image'];
         $image['channel_id'] = $channelId;
@@ -122,7 +124,7 @@ class GrabFeedUrlsService extends BaseService
      *
      * @return array
      */
-    private function transformItems(array $result, int $channelId)
+    public function transformItems(array $result, int $channelId)
     {
         $items = [];
         $now = now();
