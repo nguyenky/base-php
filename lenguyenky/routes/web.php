@@ -11,10 +11,22 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
+Route::pattern('id', '[0-9]+');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth', 'namespace' => 'WebView'], function() {
+    # Home
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    # Items
+    Route::resource('items', 'ItemController');    
+});
+

@@ -16,4 +16,23 @@ class ItemRepository extends BaseRepository
     {
         return Item::class;
     }
+
+    /**
+     * Get allow relations
+     *
+     * @return array
+     */
+    public function getAllowRelations()
+    {
+        return [
+            'channel'
+        ];
+    }
+
+    public function getOrderableFields()
+    {
+        return [
+            'updated_at'
+        ];
+    }
 }

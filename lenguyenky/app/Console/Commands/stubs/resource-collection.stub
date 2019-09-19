@@ -1,0 +1,9 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Resources\PaginatedCollection;
+
+class DummyClass extends PaginatedCollection
+{
+}

@@ -15,4 +15,13 @@ class Item extends Model
         'comments',
         'pubDate'
     ];
+
+    protected $dates = [
+        'pubDate'
+    ];
+
+    public function channel()
+    {
+        return $this->belongsTo(\App\Models\Channel::class);
+    }
 }
