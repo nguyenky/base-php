@@ -103,13 +103,15 @@ class Handler extends ExceptionHandler
                 break;
         }
 
-        return $request->is('api/*')
-            ? response()->json([
+        if ($request->is('api/*')) {
+            return response()->json([
                 'message' => $message,
                 'errors'  => $errors,
                 'code'    => $messageCode
-            ], $statusCode) 
-            : $e instanceof ValidationException 
+            ], $statusCode);
+        };
+
+        return $e instanceof ValidationException 
             ? $this->convertValidationExceptionToResponse($e, $request) 
             : response($message, 400);
     }

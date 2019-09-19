@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::pattern('id', '[0-9]+');
 
-Route::group(['namespace' => 'Api'], function() {
+Route::post('login', 'Api\Auth\LoginController@login')->name('login');
+
+Route::group(['namespace' => 'Api', 'middleware' => 'jwt.auth'], function() {
     Route::apiResource('items', 'ItemController');
 });
