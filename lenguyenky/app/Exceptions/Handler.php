@@ -13,6 +13,11 @@ use Ky\Core\Exceptions\BaseException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
 class Handler extends ExceptionHandler
 {
@@ -82,7 +87,12 @@ class Handler extends ExceptionHandler
                 $messageCode = 'record.not_found';
                 break;
 
+            case $e instanceof JWTException:
+            case $e instanceof TokenInvalidException:
+            case $e instanceof TokenBlacklistedException:
             case $e instanceof AuthenticationException:
+            case $e instanceof UnauthorizedHttpException:
+            case $e instanceof TokenExpiredException:
                 $message = __('messages.errors.session_not_found');
                 $statusCode = 401;
                 $messageCode = 'session.not_found';
